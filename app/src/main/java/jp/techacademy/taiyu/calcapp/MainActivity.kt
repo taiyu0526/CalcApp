@@ -1,11 +1,14 @@
 package jp.techacademy.taiyu.calcapp
 
+
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import android.view.View
 import android.widget.EditText
+
 
 
 class MainActivity : AppCompatActivity(),View.OnClickListener {
@@ -17,6 +20,8 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         button2.setOnClickListener(this)
         button3.setOnClickListener(this)
         button4.setOnClickListener(this)
+
+
 
     }
 
@@ -33,8 +38,12 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
         var result = 0.0
 
+
+
         if (str1.length == 0 || str2.length == 0) {
-            
+
+            val error = Snackbar.make(view, "数値を入力してください",snackbar.LENGTH_LONG ).show()
+
 
 
         } else {
