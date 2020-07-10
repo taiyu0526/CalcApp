@@ -8,7 +8,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import android.view.View
 import android.widget.EditText
-
+import androidx.appcompat.app.AlertDialog
+import com.google.android.material.snackbar.Snackbar
 
 
 class MainActivity : AppCompatActivity(),View.OnClickListener {
@@ -20,7 +21,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         button2.setOnClickListener(this)
         button3.setOnClickListener(this)
         button4.setOnClickListener(this)
-
 
 
     }
@@ -39,15 +39,12 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         var result = 0.0
 
 
+        if (str1 == "0" || str2 == "0" ) {
 
-        if (str1.length == 0 || str2.length == 0) {
-
-            val error = Snackbar.make(view, "数値を入力してください",snackbar.LENGTH_LONG ).show()
-
-
-
-        } else {
-
+                 Snackbar.make(v, "数値を入力してください", Snackbar.LENGTH_LONG)
+                .setAction("error", null).show()
+        }
+         else {
 
             if (v.id == R.id.button1) {
                 result = num1 + num2
@@ -58,13 +55,12 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             } else if (v.id == R.id.button4) {
                 result = num1 / num2
             }
-        }
 
-        intent.putExtra("result", result)
-        startActivity(intent)
+            intent.putExtra("result", result)
+            startActivity(intent)
+        }
     }
 }
-
 
 
 
