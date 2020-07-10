@@ -33,17 +33,20 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         var str1: String = editText.text.toString()//エディットテキストの値をstring型
         var str2: String = editText2.text.toString()
 
-        var num1: Double = str1.toDouble()//string型をdouble型へ
+        var num1: Double = str1.toDouble()
         var num2: Double = str2.toDouble()
 
         var result = 0.0
 
 
-        if (str1 == "0" || str2 == "0" ) {
 
-                 Snackbar.make(v, "数値を入力してください", Snackbar.LENGTH_LONG)
-                .setAction("error", null).show()
+        if (str1.length == 0 || str2.length == 0) {
+
+            Snackbar.make(v, "数値を入力してください", Snackbar.LENGTH_LONG)
+            return
         }
+
+
          else {
 
             if (v.id == R.id.button1) {
